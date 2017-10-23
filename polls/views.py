@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from polls.models import Db
+from django.db.models import Avg
 from django.shortcuts import render_to_response
 from django.http import HttpResponse , Http404
+
 import datetime
 
 def hours_ahead(request, offset):
@@ -27,7 +29,9 @@ def search(request):
 
 def searchform(request):
     if 'q' in request.GET:
-        message = 'You searched for: %r' % request.GET['q']
+        number = int(request.GET['q'])
+        avrage = Db.objects.filter(film = number).aggregate(Avg('rate'))
+        message = 'Film rate avrage: %r' % avrage
     else:
         message = 'You submitted an empty form.'
     return HttpResponse(message)
