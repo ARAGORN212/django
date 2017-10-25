@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^time/', views.time , name = 'time'),
     url(r'^search/', views.search , name = 'search'),
     url(r'^searchform/', views.searchform , name = 'searchform'),
+    url(r'^form/', views.form , name = 'form'),
 
 ]

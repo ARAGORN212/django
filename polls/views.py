@@ -27,6 +27,9 @@ def index(request):
 def search(request):
     return render_to_response('search.html')
 
+def form(request):
+    return render_to_response('h.html')
+
 def searchform(request):
     if 'q' in request.GET:
         number = int(request.GET['q'])
