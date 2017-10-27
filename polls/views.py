@@ -38,3 +38,6 @@ def searchform(request):
     else:
         message = 'You submitted an empty form.'
     return HttpResponse(message)
+
+def test(request):
+    return render_to_response('test.html')
